@@ -1,0 +1,62 @@
+#define verde 9
+#define azul 6
+#define rojo 5 
+#define LDR A0
+void setup() 
+{   
+  Serial.begin(9600);
+  pinMode(azul, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(rojo, OUTPUT);
+} 
+
+void loop() 
+{ 
+  int luz = analogRead(LDR);
+  Serial.print("Luminosidad");
+  Serial.println(luz); 
+
+   
+  if(luz < 100)
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(azul, LOW);
+    digitalWrite(rojo, LOW);
+  }
+  if(luz > 100 && luz < 200)
+  {
+    digitalWrite(verde, HIGH);
+    digitalWrite(azul, LOW);
+    digitalWrite(rojo, LOW);
+  }
+  if(luz > 200 && luz < 300)
+  {
+    digitalWrite(verde, HIGH);
+    digitalWrite(azul, LOW);
+    digitalWrite(rojo, HIGH);
+  }
+  if(luz > 300 && luz < 400)
+  {
+    digitalWrite(verde, HIGH);
+    digitalWrite(azul, HIGH);
+    digitalWrite(rojo, LOW);
+  }
+  if(luz > 400 && luz < 500)
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(azul, HIGH);
+    digitalWrite(rojo, LOW);
+  }
+  if(luz > 500 && luz < 600)
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(azul, LOW);
+    digitalWrite(rojo, HIGH);
+  }
+  if(luz  > 600)
+  {
+    digitalWrite(verde, HIGH);
+    digitalWrite(azul, HIGH);
+    digitalWrite(rojo, HIGH);
+  }
+}
